@@ -68,7 +68,7 @@ export async function GET(req: Request) {
     is_prime: isPrime(number),
     is_perfect: isPerfect(number),
     properties,
-    digit_sum: number
+    digit_sum: Math.abs(number)
       .toString()
       .split("")
       .reduce((sum, d) => sum + parseInt(d), 0),
