@@ -14,7 +14,7 @@ This API analyzes a given number and determines its mathematical properties. It 
 ## API Endpoint
 ### **Base URL:**
 ```
-https://lexiz-hng-backend-1/api/classify-number
+https://lexiz-hng-backend-1
 ```
 
 ### **GET /api/classify-number?number={number}**
