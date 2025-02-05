@@ -48,10 +48,13 @@ export async function GET(req: Request) {
 
   // Validate input
   if (!numberParam || isNaN(Number(numberParam))) {
-    return NextResponse.json(
+    const response = NextResponse.json(
       { number: numberParam, error: true },
       { status: 400 }
-    ).headers.set("Access-Control-Allow-Origin", "*");
+    );
+
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    return response;
   }
 
   const number = parseInt(numberParam, 10);
@@ -60,7 +63,7 @@ export async function GET(req: Request) {
   if (isArmstrong(number)) properties.push("armstrong");
   properties.push(number % 2 === 0 ? "even" : "odd");
 
-  const response = {
+  const response = NextResponse.json({
     number,
     is_prime: isPrime(number),
     is_perfect: isPerfect(number),
@@ -70,10 +73,9 @@ export async function GET(req: Request) {
       .split("")
       .reduce((sum, d) => sum + parseInt(d), 0),
     fun_fact: await getFunFact(number),
-  };
+  });
 
-  return NextResponse.json(response, { status: 200 }).headers.set(
-    "Access-Control-Allow-Origin",
-    "*"
-  );
+  response.headers.set("Access-Control-Allow-Origin", "*");
+
+  return response;
 }

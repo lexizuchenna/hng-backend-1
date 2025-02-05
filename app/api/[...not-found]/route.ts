@@ -1,29 +1,41 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  return NextResponse.json(
+  const response = NextResponse.json(
     { message: "URL not found", status: 404 },
     { status: 404 }
-  ).headers.set("Access-Control-Allow-Origin", "*");
+  );
+
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  return response;
 }
 
 export async function POST() {
-  return NextResponse.json(
+  const response = NextResponse.json(
     { message: "URL not found", status: 404 },
     { status: 404 }
-  ).headers.set("Access-Control-Allow-Origin", "*");
+  );
+
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  return response;
 }
 
 export async function PATCH() {
-  return NextResponse.json(
+  const response = NextResponse.json(
     { message: "URL not found", status: 404 },
     { status: 404 }
-  ).headers.set("Access-Control-Allow-Origin", "*");
+  );
+
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  return response;
 }
 
 export async function DELETE() {
-  return NextResponse.json(
+  const response = NextResponse.json(
     { message: "URL not found", status: 404 },
     { status: 404 }
-  ).headers.set("Access-Control-Allow-Origin", "*");
+  );
+
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  return response;
 }
